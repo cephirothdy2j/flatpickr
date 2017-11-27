@@ -1,4 +1,4 @@
-/* flatpickr v4.0.7, @license MIT */
+/* flatpickr v4.1.2, @license MIT */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -72,6 +72,7 @@ var defaults = {
     enable: [],
     enableSeconds: false,
     enableTime: false,
+    errorHandler: console.warn,
     getWeek: getWeek,
     hourIncrement: 1,
     ignoredFocusElements: [],
@@ -443,8 +444,11 @@ function FlatpickrInstance(element, instanceConfig) {
         return fn.bind(self);
     }
     function updateTime(e) {
-        if (self.config.noCalendar && !self.selectedDates.length) {
-            self.setDate(new Date().setHours(self.config.defaultHour, self.config.defaultMinute, self.config.defaultSeconds), false);
+        if (self.config.noCalendar && self.selectedDates.length === 0) {
+            var minDate = self.config.minDate;
+            self.setDate(new Date().setHours(!minDate ? self.config.defaultHour : minDate.getHours(), !minDate ? self.config.defaultMinute : minDate.getMinutes(), !minDate || !self.config.enableSeconds
+                ? self.config.defaultSeconds
+                : minDate.getSeconds()), false);
             setHoursFromInputs();
             updateValue();
         }
@@ -576,7 +580,9 @@ function FlatpickrInstance(element, instanceConfig) {
         self._handlers.push({ element: element, event: event, handler: handler });
     }
     function onClick(handler) {
-        return function (evt) { return evt.which === 1 && handler(evt); };
+        return function (evt) {
+            evt.which === 1 && handler(evt);
+        };
     }
     function triggerChange() {
         triggerEvent("onChange");
@@ -595,7 +601,7 @@ function FlatpickrInstance(element, instanceConfig) {
         }
         var debouncedResize = debounce(onResize, 50);
         self._debouncedChange = debounce(triggerChange, 300);
-        if (self.config.mode === "range" && self.daysContainer)
+        if (self.config.mode === "range" && self.daysContainer && !/iPhone|iPad|iPod/i.test(navigator.userAgent))
             bind(self.daysContainer, "mouseover", function (e) {
                 return onMouseOver(e.target);
             });
@@ -705,8 +711,8 @@ function FlatpickrInstance(element, instanceConfig) {
             }
         }
         catch (e) {
-            console.error(e.stack);
-            console.warn("Invalid date supplied: " + jumpTo);
+            e.message = "Invalid date supplied: " + jumpTo;
+            self.config.errorHandler(e);
         }
         self.redraw();
     }
@@ -935,7 +941,7 @@ function FlatpickrInstance(element, instanceConfig) {
         }
         self.nextMonthNav = createElement("span", "flatpickr-next-month");
         self.nextMonthNav.innerHTML = self.config.nextArrow;
-        self.navigationCurrentMonth = createElement("span", "flatpickr-current-month");
+        self.navigationCurrentMonth = createElement("div", "flatpickr-current-month");
         self.navigationCurrentMonth.appendChild(self.currentMonthElement);
         self.navigationCurrentMonth.appendChild(yearInput);
         monthNavFragment.appendChild(self.prevMonthNav);
@@ -1092,7 +1098,7 @@ function FlatpickrInstance(element, instanceConfig) {
         updateNavigationCurrentMonth();
         if (self.oldCurMonth.firstChild)
             self.oldCurMonth.firstChild.textContent = monthToStr(self.currentMonth - delta, self.config.shorthandCurrentMonth, self.l10n);
-        triggerEvent("onMonthChange");
+        afterDayAnim(function () { return triggerEvent("onMonthChange"); });
         if (from_keyboard &&
             document.activeElement &&
             document.activeElement.$i) {
@@ -1586,7 +1592,7 @@ function FlatpickrInstance(element, instanceConfig) {
     function setupLocale() {
         if (typeof self.config.locale !== "object" &&
             typeof flatpickr.l10ns[self.config.locale] === "undefined")
-            console.warn("flatpickr: invalid locale " + self.config.locale);
+            self.config.errorHandler(new Error("flatpickr: invalid locale " + self.config.locale));
         self.l10n = __assign({}, flatpickr.l10ns.default, typeof self.config.locale === "object"
             ? self.config.locale
             : self.config.locale !== "default"
@@ -1748,6 +1754,8 @@ function FlatpickrInstance(element, instanceConfig) {
                     break;
             }
         }
+        else
+            self.config.errorHandler(new Error("Invalid date supplied: " + JSON.stringify(inputDate)));
         self.selectedDates = dates.filter(function (d) { return d instanceof Date && isEnabled(d, false); });
         self.selectedDates.sort(function (a, b) { return a.getTime() - b.getTime(); });
     }
@@ -1890,8 +1898,7 @@ function FlatpickrInstance(element, instanceConfig) {
             }
         }
         if (!(parsedDate instanceof Date)) {
-            console.warn("flatpickr: invalid date " + date_orig);
-            console.info(self.element);
+            self.config.errorHandler(new Error("Invalid date provided: " + date_orig));
             return undefined;
         }
         if (timeless === true)
@@ -1903,7 +1910,7 @@ function FlatpickrInstance(element, instanceConfig) {
             ? element.querySelector("[data-input]")
             : element;
         if (!self.input) {
-            console.warn("Error: invalid input element specified", self.input);
+            self.config.errorHandler(new Error("Invalid input element specified"));
             return;
         }
         self.input._type = self.input.type;
@@ -1954,7 +1961,7 @@ function FlatpickrInstance(element, instanceConfig) {
                 self.input.parentNode.insertBefore(self.mobileInput, self.input.nextSibling);
         }
         catch (_a) { }
-        self.mobileInput.addEventListener("change", function (e) {
+        bind(self.mobileInput, "change", function (e) {
             self.setDate(e.target.value, false, self.mobileFormatStr);
             triggerEvent("onChange");
             triggerEvent("onClose");
@@ -2119,7 +2126,7 @@ function _flatpickr(nodeList, config) {
             instances.push(node._flatpickr);
         }
         catch (e) {
-            console.warn(e, e.stack);
+            console.error(e);
         }
     }
     return instances.length === 1 ? instances[0] : instances;

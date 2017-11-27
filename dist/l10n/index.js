@@ -1,4 +1,4 @@
-/* flatpickr v4.0.7, @license MIT */
+/* flatpickr v4.1.2, @license MIT */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -2444,7 +2444,6 @@ var fp$43 = typeof window !== "undefined" && window.flatpickr !== undefined
         l10ns: {},
     };
 var Turkish = {
-    firstDayOfWeek: 1,
     weekdays: {
         shorthand: ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"],
         longhand: [
@@ -2487,6 +2486,15 @@ var Turkish = {
             "Aralık",
         ],
     },
+    firstDayOfWeek: 1,
+    ordinal: function () {
+        return ".";
+    },
+    rangeSeparator: " - ",
+    weekAbbreviation: "Hf",
+    scrollTitle: "Artırmak için kaydırın",
+    toggleTitle: "Aç/Kapa",
+    amPM: ["ÖÖ", "ÖS"],
 };
 fp$43.l10ns.tr = Turkish;
 

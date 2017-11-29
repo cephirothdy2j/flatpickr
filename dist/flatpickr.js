@@ -1,4 +1,4 @@
-/* flatpickr v4.1.2, @license MIT */
+/* flatpickr v4.1.3, @license MIT */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -356,7 +356,6 @@ var formats = {
     y: function (date) { return String(date.getFullYear()).substring(2); },
 };
 
-"use strict";
 if (typeof Object.assign !== "function") {
     Object.assign = function (target) {
         var args = [];
@@ -526,20 +525,24 @@ function FlatpickrInstance(element, instanceConfig) {
             self.latestSelectedDateObj &&
             compareDates(self.latestSelectedDateObj, self.config.minDate) === 0) {
             hours = Math.max(hours, self.config.minDate.getHours());
-            if (hours === self.config.minDate.getHours())
+            if (hours === self.config.minDate.getHours()) {
                 minutes = Math.max(minutes, self.config.minDate.getMinutes());
-            if (minutes === self.config.minDate.getMinutes())
-                seconds = Math.max(seconds, self.config.minDate.getSeconds());
+                if (minutes === self.config.minDate.getMinutes()) {
+                    seconds = Math.max(seconds, self.config.minDate.getSeconds());
+                }
+            }
         }
         if (self.config.maxDate &&
             self.maxDateHasTime &&
             self.latestSelectedDateObj &&
             compareDates(self.latestSelectedDateObj, self.config.maxDate) === 0) {
             hours = Math.min(hours, self.config.maxDate.getHours());
-            if (hours === self.config.maxDate.getHours())
+            if (hours === self.config.maxDate.getHours()) {
                 minutes = Math.min(minutes, self.config.maxDate.getMinutes());
-            if (minutes === self.config.maxDate.getMinutes())
-                seconds = Math.min(seconds, self.config.maxDate.getSeconds());
+                if (minutes === self.config.maxDate.getMinutes()) {
+                    seconds = Math.min(seconds, self.config.maxDate.getSeconds());
+                }
+            }
         }
         setHours(hours, minutes, seconds);
     }
@@ -601,7 +604,9 @@ function FlatpickrInstance(element, instanceConfig) {
         }
         var debouncedResize = debounce(onResize, 50);
         self._debouncedChange = debounce(triggerChange, 300);
-        if (self.config.mode === "range" && self.daysContainer && !/iPhone|iPad|iPod/i.test(navigator.userAgent))
+        if (self.config.mode === "range" &&
+            self.daysContainer &&
+            !/iPhone|iPad|iPod/i.test(navigator.userAgent))
             bind(self.daysContainer, "mouseover", function (e) {
                 return onMouseOver(e.target);
             });
@@ -1430,8 +1435,7 @@ function FlatpickrInstance(element, instanceConfig) {
             if (timestamp >= minRangeDate && timestamp <= maxRangeDate)
                 dayElem.classList.add("inRange");
         };
-        for (var i = 0, date = self.days.childNodes[i].dateObj; i < 42; i++,
-            date =
+        for (var i = 0, date = self.days.childNodes[i].dateObj; i < 42; i++, date =
                 self.days.childNodes[i] &&
                     self.days.childNodes[i].dateObj) {
             _loop_1(i, date);

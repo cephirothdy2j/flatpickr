@@ -1,4 +1,4 @@
-/* flatpickr v4.1.2, @license MIT */
+/* flatpickr v4.1.3, @license MIT */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -68,6 +68,7 @@ var Arabic = {
     },
 };
 fp.l10ns.ar = Arabic;
+fp.l10ns;
 
 var fp$1 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -119,6 +120,7 @@ var Bulgarian = {
     },
 };
 fp$1.l10ns.bg = Bulgarian;
+fp$1.l10ns;
 
 var fp$2 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -170,6 +172,7 @@ var Bangla = {
     },
 };
 fp$2.l10ns.bn = Bangla;
+fp$2.l10ns;
 
 var fp$3 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -239,6 +242,7 @@ var Catalan = {
     firstDayOfWeek: 1,
 };
 fp$3.l10ns.cat = Catalan;
+fp$3.l10ns;
 
 var fp$4 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -295,6 +299,7 @@ var Czech = {
     },
 };
 fp$4.l10ns.cs = Czech;
+fp$4.l10ns;
 
 var fp$5 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -373,6 +378,7 @@ var Welsh = {
     },
 };
 fp$5.l10ns.cy = Welsh;
+fp$5.l10ns;
 
 var fp$6 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -430,6 +436,7 @@ var Danish = {
     weekAbbreviation: "uge",
 };
 fp$6.l10ns.da = Danish;
+fp$6.l10ns;
 
 var fp$7 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -486,6 +493,7 @@ var German = {
     toggleTitle: "Zum Umschalten klicken",
 };
 fp$7.l10ns.de = German;
+fp$7.l10ns;
 
 var english = {
     weekdays: {
@@ -612,6 +620,7 @@ var Esperanto = {
     },
 };
 fp$8.l10ns.eo = Esperanto;
+fp$8.l10ns;
 
 var fp$9 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -667,6 +676,7 @@ var Spanish = {
     firstDayOfWeek: 1,
 };
 fp$9.l10ns.es = Spanish;
+fp$9.l10ns;
 
 var fp$10 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -726,6 +736,7 @@ var Estonian = {
     toggleTitle: "Klõpsa, et vahetada",
 };
 fp$10.l10ns.et = Estonian;
+fp$10.l10ns;
 
 var fp$11 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -780,6 +791,7 @@ var Persian = {
     },
 };
 fp$11.l10ns.fa = Persian;
+fp$11.l10ns;
 
 var fp$12 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -835,6 +847,7 @@ var Finnish = {
     },
 };
 fp$12.l10ns.fi = Finnish;
+fp$12.l10ns;
 
 var fp$13 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -896,6 +909,7 @@ var French = {
     toggleTitle: "Cliquer pour basculer",
 };
 fp$13.l10ns.fr = French;
+fp$13.l10ns;
 
 var fp$14 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -956,6 +970,7 @@ var Greek = {
     amPM: ["ΠΜ", "ΜΜ"],
 };
 fp$14.l10ns.gr = Greek;
+fp$14.l10ns;
 
 var fp$15 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -999,6 +1014,7 @@ var Hebrew = {
     },
 };
 fp$15.l10ns.he = Hebrew;
+fp$15.l10ns;
 
 var fp$16 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1050,6 +1066,7 @@ var Hindi = {
     },
 };
 fp$16.l10ns.hi = Hindi;
+fp$16.l10ns;
 
 var fp$17 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1102,6 +1119,7 @@ var Croatian = {
     },
 };
 fp$17.l10ns.hr = Croatian;
+fp$17.l10ns;
 
 var fp$18 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1160,6 +1178,7 @@ var Hungarian = {
     toggleTitle: "Kattintson a váltáshoz",
 };
 fp$18.l10ns.hu = Hungarian;
+fp$18.l10ns;
 
 var fp$19 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1207,6 +1226,7 @@ var Indonesian = {
     },
 };
 fp$19.l10ns.id = Indonesian;
+fp$19.l10ns;
 
 var fp$20 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1263,6 +1283,7 @@ var Italian = {
     toggleTitle: "Clicca per cambiare",
 };
 fp$20.l10ns.it = Italian;
+fp$20.l10ns;
 
 var fp$21 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1306,6 +1327,7 @@ var Japanese = {
     },
 };
 fp$21.l10ns.ja = Japanese;
+fp$21.l10ns;
 
 var fp$22 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1352,6 +1374,7 @@ var Korean = {
     },
 };
 fp$22.l10ns.ko = Korean;
+fp$22.l10ns;
 
 var fp$23 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1410,6 +1433,7 @@ var Lithuanian = {
     toggleTitle: "Perjungti laiko formatą",
 };
 fp$23.l10ns.lt = Lithuanian;
+fp$23.l10ns;
 
 var fp$24 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1463,6 +1487,7 @@ var Latvian = {
     rangeSeparator: " līdz ",
 };
 fp$24.l10ns.lv = Latvian;
+fp$24.l10ns;
 
 var fp$25 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1518,6 +1543,7 @@ var Macedonian = {
     rangeSeparator: " до ",
 };
 fp$25.l10ns.mk = Macedonian;
+fp$25.l10ns;
 
 var fp$26 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1563,7 +1589,13 @@ var Mongolian = {
     rangeSeparator: "-с ",
 };
 fp$26.l10ns.mn = Mongolian;
+fp$26.l10ns;
 
+var fp$27 = typeof window !== "undefined" && window.flatpickr !== undefined
+    ? window.flatpickr
+    : {
+        l10ns: {},
+    };
 var Malaysian = {
     weekdays: {
         shorthand: ["Min", "Isn", "Sel", "Rab", "Kha", "Jum", "Sab"],
@@ -1612,6 +1644,7 @@ var Malaysian = {
         return "";
     },
 };
+fp$27.l10ns;
 
 var fp$28 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1667,6 +1700,7 @@ var Burmese = {
     },
 };
 fp$28.l10ns.my = Burmese;
+fp$28.l10ns;
 
 var fp$29 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1728,6 +1762,7 @@ var Dutch = {
     },
 };
 fp$29.l10ns.nl = Dutch;
+fp$29.l10ns;
 
 var fp$30 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1787,6 +1822,7 @@ var Norwegian = {
     },
 };
 fp$30.l10ns.no = Norwegian;
+fp$30.l10ns;
 
 var fp$31 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1838,6 +1874,7 @@ var Punjabi = {
     },
 };
 fp$31.l10ns.pa = Punjabi;
+fp$31.l10ns;
 
 var fp$32 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1892,6 +1929,7 @@ var Polish = {
     },
 };
 fp$32.l10ns.pl = Polish;
+fp$32.l10ns;
 
 var fp$33 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1944,6 +1982,7 @@ var Portuguese = {
     rangeSeparator: " até ",
 };
 fp$33.l10ns.pt = Portuguese;
+fp$33.l10ns;
 
 var fp$34 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -1999,6 +2038,7 @@ var Romanian = {
     },
 };
 fp$34.l10ns.ro = Romanian;
+fp$34.l10ns;
 
 var fp$35 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2054,6 +2094,7 @@ var Russian = {
     toggleTitle: "Нажмите для переключения",
 };
 fp$35.l10ns.ru = Russian;
+fp$35.l10ns;
 
 var fp$36 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2105,6 +2146,7 @@ var Sinhala = {
     },
 };
 fp$36.l10ns.si = Sinhala;
+fp$36.l10ns;
 
 var fp$37 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2161,6 +2203,7 @@ var Slovak = {
     },
 };
 fp$37.l10ns.sk = Slovak;
+fp$37.l10ns;
 
 var fp$38 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2217,6 +2260,7 @@ var Slovenian = {
     },
 };
 fp$38.l10ns.sl = Slovenian;
+fp$38.l10ns;
 
 var fp$39 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2268,6 +2312,7 @@ var Albanian = {
     },
 };
 fp$39.l10ns.sq = Albanian;
+fp$39.l10ns;
 
 var fp$40 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2323,6 +2368,7 @@ var Serbian = {
     rangeSeparator: " do ",
 };
 fp$40.l10ns.sr = Serbian;
+fp$40.l10ns;
 
 var fp$41 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2379,6 +2425,7 @@ var Swedish = {
     },
 };
 fp$41.l10ns.sv = Swedish;
+fp$41.l10ns;
 
 var fp$42 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2437,6 +2484,7 @@ var Thai = {
     },
 };
 fp$42.l10ns.th = Thai;
+fp$42.l10ns;
 
 var fp$43 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2497,6 +2545,7 @@ var Turkish = {
     amPM: ["ÖÖ", "ÖS"],
 };
 fp$43.l10ns.tr = Turkish;
+fp$43.l10ns;
 
 var fp$44 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2549,6 +2598,7 @@ var Ukrainian = {
     },
 };
 fp$44.l10ns.uk = Ukrainian;
+fp$44.l10ns;
 
 var fp$45 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2601,6 +2651,7 @@ var Vietnamese = {
     firstDayOfWeek: 1,
 };
 fp$45.l10ns.vn = Vietnamese;
+fp$45.l10ns;
 
 var fp$46 = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
@@ -2648,6 +2699,7 @@ var Mandarin = {
     toggleTitle: "点击切换 12/24 小时时制",
 };
 fp$46.l10ns.zh = Mandarin;
+fp$46.l10ns;
 
 var l10n = {
     ar: Arabic,
